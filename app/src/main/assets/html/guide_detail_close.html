@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>攻略详情</title>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no,email=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_1459517128_991336.css">
+    <link rel="stylesheet" type="text/css" href="../css/guide.css">
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+    <!-- 顶栏 -->
+    <!--<header class="header">
+        <div class="back-btn"><i class="iconfont icon-fanhui"></i></div>
+        <span class="title-name">攻略详情</span>
+    </header>-->
+
+    <!-- 内容 -->
+    <article class="main">
+        <!-- 攻略头部 -->
+        <section class="guide-title">
+            <div class="guide-title-img">
+                <div class="cover"></div>
+                <img src="http://img01.liwushuo.com/image/150106/df4cc6i7v.jpg-w720">
+                <h1 class="guide-title-text">春天了我们该这么穿</h1>
+            </div>
+            <div class="guide-title-info">
+                大地回春，脱掉厚厚的棉袄，男孩子也有春天。
+            </div>
+        </section>
+
+        <!-- 攻略商品 -->
+        <section class="guide-goods">
+            <div class="goods-item">
+                <div class="item-head">
+                    <span class="item-index">1</span>
+                    男士pu皮夹克薄款
+                </div>
+                <div class="item-info">
+                    帅气的皮夹克，让男生更有精神，韩版的剪裁，更加流行的款式，潮到不行。
+                </div>
+                <div class="item-img">
+                    <img src="../img/img1.png">
+                </div>
+                <div class="item-bottom">
+                    <span class="item-price">￥<i>248.00</i></span>
+                    <div class="item-like-btn">
+                        <i class="iconfont icon-xihuan"></i>
+                    </div>
+                    <a class="buy-btn" href="https://detail.tmall.com/item.htm?id=522228152140&ali_refid=a3_430583_1006:1105048352:N:%E6%BD%AE%E7%94%B7%E7%9A%AE%E5%A4%B9%E5%85%8B:3142511617ecdba52cf9977f1e653bf2&ali_trackid=1_3142511617ecdba52cf9977f1e653bf2&spm=a230r.1.14.1.iuQ6Dy">查看详情</a>
+                </div>
+            </div>
+
+            <div class="goods-item">
+                <div class="item-head">
+                    <span class="item-index">2</span>
+                    纯棉短袖T恤圆领白色
+                </div>
+                <div class="item-info">
+                    百搭的白色显得男生更白净，不管是日常还是工作都可以搭哟~
+                </div>
+                <div class="item-img">
+                    <img src="../img/img2.png">
+                </div>
+                <div class="item-bottom">
+                    <span class="item-price">￥<i>63.00</i></span>
+                    <div class="item-like-btn">
+                        <i class="iconfont icon-xihuan"></i>
+                    </div>
+                    <a class="buy-btn" href="https://detail.tmall.com/item.htm?spm=a230r.1.14.38.S4nW9Y&id=21985252690&ns=1&abbucket=15">查看详情</a>
+                </div>
+            </div>
+
+            <div class="goods-item">
+                <div class="item-head">
+                    <span class="item-index">3</span>
+                    青年小脚裤韩版修身款
+                </div>
+                <div class="item-info">
+                    时尚修身裁剪的牛仔裤，完好和腿部曲线的剪裁，挡不住的韩潮范儿，那股子迷煞芳心的劲儿是他的诱惑。
+                </div>
+                <div class="item-img">
+                    <img src="../img/img3.png">
+                </div>
+                <div class="item-bottom">
+                    <span class="item-price">￥<i>158.00</i></span>
+                    <div class="item-like-btn">
+                        <i class="iconfont icon-xihuan"></i>
+                    </div>
+                    <a class="buy-btn" href="https://detail.tmall.com/item.htm?id=527975894532&ali_refid=a3_430583_1006:1105048352:N:%E5%A4%8F%E5%AD%A3%E4%B9%9D%E5%88%86%E8%A3%A4%E7%89%9B%E4%BB%94%E8%A3%A4%E7%94%B7:3c71b394b687e03c6b9b770b953ff807&ali_trackid=1_3c71b394b687e03c6b9b770b953ff807&spm=a230r.1.14.1.lUsljZ">查看详情</a>
+                </div>
+            </div>
+        </section>
+    </article>
+
+    <!-- 底栏 -->
+    <footer class="footer">
+        <div class="bot-btn" id="like"><i class="iconfont icon-xihuan"></i><span>3700</span></div>
+        <div class="bot-btn" id="share"><i class="iconfont icon-fenxiang"></i><span>69</span></div>
+        <div class="bot-btn" id="comment"><i class="iconfont icon-pinglun"></i><span>5006</span></div>
+    </footer>
+
+    <script type="text/javascript">
+        $(function(){
+            var winW = $(window).width();
+            winW = winW>818 ? 818 : winW;
+            $('.bot-btn').width(winW/3);
+
+            //喜欢按钮切换
+            $('.item-like-btn').click(function(){
+                $(this).toggleClass('like-active');
+            });
+
+            //底部喜欢+1
+            $('#like').click(function(){
+                var _thisCount = $(this).find('span');
+                var count = parseInt(_thisCount.text()) + 1;
+                _thisCount.text(count);
+            })
+        })
+    </script>
+</body>
+</html>

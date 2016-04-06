@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <!--<item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="拍照"/>-->
+        <item
+            android:id="@+id/nav_main"
+            android:title="首页"
+            android:icon="@drawable/ic_list_black_18dp"
+            />
+        <item
+            android:id="@+id/nav_mark"
+            android:title="打分"
+            android:icon="@drawable/ic_radio_button_checked_black_24dp"
+            />
+        <item
+            android:id="@+id/nav_favorite"
+            android:icon="@drawable/ic_grade_black_36dp"
+            android:title="收藏"/>
+        <item
+            android:id="@+id/nav_attention"
+            android:icon="@drawable/ic_visibility_black_24dp"
+            android:title="关注"/>
+
+    </group>
+
+    <item android:title="其他">
+        <menu>
+            <item
+                android:id="@+id/nav_manage"
+                android:icon="@drawable/ic_settings_black_36dp"
+                android:title="设置"/>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="分享"/>
+        </menu>
+    </item>
+
+</menu>

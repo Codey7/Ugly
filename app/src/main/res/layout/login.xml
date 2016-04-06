@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:background="@android:color/white"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+<ImageView
+    android:layout_marginTop="@dimen/nav_header_height"
+    android:layout_centerHorizontal="true"
+    android:src="@drawable/logo"
+    android:layout_width="120dp"
+    android:layout_height="120dp"
+    android:id="@+id/icon"/>
+
+    <TextView
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="账号："
+        android:id="@+id/name"
+        android:layout_alignBottom="@+id/editText"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress|phone"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:id="@+id/editText"
+        android:layout_below="@+id/icon"
+        android:layout_toRightOf="@+id/name"
+        />
+
+    <TextView
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="密码："
+        android:id="@+id/password"
+        android:layout_alignBottom="@+id/editpwd"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:id="@+id/editpwd"
+        android:layout_below="@+id/editText"
+        android:layout_toRightOf="@+id/name"
+        />
+    <Button
+        android:id="@+id/login"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rectangle_button"
+        android:text="登录"
+        android:layout_below="@+id/editpwd"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_alignLeft="@+id/login"
+        android:text="第三方登录:"
+        android:layout_below="@+id/login"
+        android:id="@+id/tv_other"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_toRightOf="@+id/tv_other"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/tv_other"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:layout_weight="1"
+        android:background="@android:color/white"
+        android:src="@drawable/umeng_socialize_wechat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+        <ImageButton
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:src="@drawable/umeng_socialize_qq_on"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ImageButton
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:src="@drawable/umeng_socialize_sina_on"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</RelativeLayout>

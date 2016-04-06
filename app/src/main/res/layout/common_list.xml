@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                    android:elevation="@dimen/cardview_default_elevation"
+                                    android:layout_margin="5dp"
+                                    android:padding="5dp"
+                                    android:descendantFocusability="blocksDescendants"
+                                    android:foreground="?android:attr/selectableItemBackground"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+<RelativeLayout
+    android:padding="2dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/iv_common"
+        android:src="@drawable/commom"
+        android:layout_width="60dp"
+        android:layout_height="60dp"/>
+    <TextView
+        android:id="@+id/tv_common_title"
+        android:layout_centerVertical="true"
+        android:textColor="#000"
+        android:textSize="16sp"
+        android:maxWidth="230dp"
+        android:lines="2"
+        android:ellipsize="end"
+        android:text="hahahahahahahaasdfasdfasdfasfasdfasdfasdfasdfasdfhahahahahahahahhahahahh"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/iv_common"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/tv_thumb_up"
+        android:drawableLeft="@drawable/ic_thumb_up_black_24dp"
+        android:padding="5dp"
+        android:text="22"
+        android:textStyle="bold"
+        android:inputType="number"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/colorPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/tv_bookmark"
+        android:layout_below="@+id/tv_thumb_up"
+        android:drawableLeft="@drawable/ic_bookmark_border_black_24dp"
+        android:padding="5dp"
+        android:text="22"
+        android:textStyle="bold"
+        android:inputType="number"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/colorPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>
+</android.support.v7.widget.CardView>
