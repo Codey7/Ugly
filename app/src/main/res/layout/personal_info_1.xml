@@ -16,25 +16,6 @@
         android:padding="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <TextView
-        android:layout_weight="1"
-        android:textSize="22sp"
-        android:text="用户名:"
-        android:textColor="@android:color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-        <EditText
-            android:id="@+id/et_user_name"
-            android:layout_weight="1"
-            android:hint="想一个高大上的名字吧"
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-    <LinearLayout
-        android:padding="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
         <TextView
             android:layout_weight="1"
             android:textSize="22sp"

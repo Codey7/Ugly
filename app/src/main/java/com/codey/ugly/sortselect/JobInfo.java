@@ -8,12 +8,17 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.codey.ugly.R;
+import com.codey.ugly.core.BaseAppCompatActivity;
+import com.codey.ugly.core.BasePersonInfo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Mr.Codey on 2016/3/31.
  * 选择工作类型
  */
-public class JobInfo extends Activity implements View.OnClickListener
+public class JobInfo extends BasePersonInfo implements View.OnClickListener
 {
     private Button mbtNext;
     private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7;
@@ -21,31 +26,41 @@ public class JobInfo extends Activity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.person_info_2);
-        setTextView();
-        mbtNext= (Button) findViewById(R.id.bt_per_next);
-
         mbtNext.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(getApplicationContext(), GirlsInfo.class);
-                startActivity(intent);
+                TextView[] tvs={tv1,tv2,tv3,tv4,tv5,tv6,tv7};
+                ArrayList list= getCheckText(tvs);
+                Intent nextintent=new Intent(JobInfo.this,GirlsInfo.class);
+                Intent intent=getIntent();
+                Bundle b=intent.getExtras();
+                b.putStringArrayList("job",list);
+                nextintent.putExtras(b);
+                startActivity(nextintent);
+                finish();
                 overridePendingTransition(android.support.design.R.anim.abc_slide_in_bottom, android.support.design.R.anim.abc_slide_out_top);
             }
         });
     }
 
-    private  void setTextView()
+    @Override
+    protected int getLayoutId()
     {
-         tv1= (TextView) findViewById(R.id.tv_select1);
-         tv2= (TextView) findViewById(R.id.tv_select2);
-         tv3= (TextView) findViewById(R.id.tv_select3);
-         tv4= (TextView) findViewById(R.id.tv_select4);
-         tv5= (TextView) findViewById(R.id.tv_select5);
-         tv6= (TextView) findViewById(R.id.tv_select6);
-         tv7= (TextView) findViewById(R.id.tv_select7);
+        return R.layout.person_info_2;
+    }
+
+    @Override
+    protected void initViews(Bundle savedInstanceState)
+    {
+        tv1= (TextView) findViewById(R.id.tv_select1);
+        tv2= (TextView) findViewById(R.id.tv_select2);
+        tv3= (TextView) findViewById(R.id.tv_select3);
+        tv4= (TextView) findViewById(R.id.tv_select4);
+        tv5= (TextView) findViewById(R.id.tv_select5);
+        tv6= (TextView) findViewById(R.id.tv_select6);
+        tv7= (TextView) findViewById(R.id.tv_select7);
 
         tv1.setOnClickListener(this);
         tv2.setOnClickListener(this);
@@ -54,6 +69,7 @@ public class JobInfo extends Activity implements View.OnClickListener
         tv5.setOnClickListener(this);
         tv6.setOnClickListener(this);
         tv7.setOnClickListener(this);
+        mbtNext= (Button) findViewById(R.id.bt_per_next);
     }
 
     @Override
@@ -63,34 +79,28 @@ public class JobInfo extends Activity implements View.OnClickListener
         {
 
             case R.id.tv_select1:
-                tv1.setSelected(true);
-                tv1.setTextColor(getResources().getColor(R.color.umeng_comm_white_color));
+                setTextView(tv1);
                 break;
             case R.id.tv_select2:
-                tv2.setSelected(true);
-                tv2.setTextColor(getResources().getColor(R.color.umeng_comm_white_color));
+                setTextView(tv2);
                 break;
             case R.id.tv_select3:
-                tv3.setSelected(true);
-                tv3.setTextColor(getResources().getColor(R.color.umeng_comm_white_color));
+                setTextView(tv3);
                 break;
             case R.id.tv_select4:
-                tv4.setSelected(true);
-                tv4.setTextColor(getResources().getColor(R.color.umeng_comm_white_color));
+                setTextView(tv4);
                 break;
             case R.id.tv_select5:
-                tv5.setSelected(true);
-                tv5.setTextColor(getResources().getColor(R.color.umeng_comm_white_color));
+                setTextView(tv5);
                 break;
             case R.id.tv_select6:
-                tv6.setSelected(true);
-                tv6.setTextColor(getResources().getColor(R.color.umeng_comm_white_color));
+                setTextView(tv6);
             break;
             case R.id.tv_select7:
-                tv7.setSelected(true);
-                tv7.setTextColor(getResources().getColor(R.color.umeng_comm_white_color));
+                setTextView(tv7);
                 break;
 
         }
     }
+
 }
