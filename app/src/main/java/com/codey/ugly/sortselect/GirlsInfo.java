@@ -10,9 +10,16 @@ import android.widget.TextView;
 
 import com.codey.ugly.MainActivity;
 import com.codey.ugly.R;
+import com.codey.ugly.bean.JudgeResult;
+import com.codey.ugly.bean.UserDetailBean;
 import com.codey.ugly.core.BasePersonInfo;
+import com.codey.ugly.utils.NetUtil;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Mr.Codey on 2016/3/31.
@@ -45,12 +52,71 @@ public class GirlsInfo extends BasePersonInfo implements View.OnClickListener
     private void getData()
     {
         TextView[] tvs={tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8};
-        ArrayList Girlslist= getCheckText(tvs);
+        ArrayList girlslist= getCheckText(tvs);
         Intent intent=getIntent();
         Bundle b=intent.getExtras();
+        int height=b.getInt("height");
+        int weight=b.getInt("weight");
+        String bodyType=getBodyType(height,weight);
+        ArrayList joblist=b.getStringArrayList("job");
 
+        UserDetailBean userDetailBean=new UserDetailBean(bodyType,joblist,girlslist);
     }
 
+    private void upload(UserDetailBean us)
+    {
+        Call<JudgeResult> call= NetUtil.getInstance().getNetService().sendDetail(us);
+        call.enqueue(new Callback<JudgeResult>()
+        {
+            @Override
+            public void onResponse(Call<JudgeResult> call, Response<JudgeResult> response)
+            {
+                JudgeResult result=response.body();
+                if (result.getResult()==1)
+                {
+                    Intent intent=new Intent(GirlsInfo.this,MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JudgeResult> call, Throwable t)
+            {
+
+            }
+        });
+    }
+    private String getBodyType(int height,int weight)
+    {
+       // 70kg÷（1.75×1.75）=22.86
+        float result=weight/((height/100)*(height/100));
+        if (result<18.5f)
+        {
+            return "偏瘦";
+        }
+        else if (result>18.5&&result<25)
+        {
+            return "正常";
+        }
+        else if (result>=25&&result<30)
+        {
+            return "偏胖";
+        }
+        else if (result>=30&&result<35)
+        {
+            return "肥胖";
+        }
+        else if (result>=35&&result<40)
+        {
+            return "重度肥胖";
+        }
+        else if (result>=40)
+        {
+            return "极重度肥胖";
+        }
+        return null;
+    }
     @Override
     protected int getLayoutId()
     {

@@ -3,6 +3,7 @@ package com.codey.ugly.utils;
 import com.codey.ugly.bean.BaseUserBean;
 import com.codey.ugly.bean.JudgeResult;
 import com.codey.ugly.bean.SignUserBean;
+import com.codey.ugly.bean.UserDetailBean;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -22,4 +23,7 @@ public interface NetService
 
     @POST("/user/login")
     Call<JudgeResult> variUser(@Body BaseUserBean baseUserBean);
+
+    @POST("/user/userdetail")
+    Call<JudgeResult> sendDetail(@Body UserDetailBean userDetailBean);
 }
