@@ -17,4 +17,14 @@
     <string name="re_input_pwd">确认你的密码</string>
     <string name="sex">性别:</string>
     <string name="wrong_input">输入有误！</string>
+    <string name="logo">logo</string>
+    <string name="start_personal">开始你的个性化设置</string>
+    <string name="password">密码：</string>
+    <string-array name="deploy_type">
+        <item>全部</item>
+        <item>服饰</item>
+        <item>发型</item>
+        <item>化妆品</item>
+        <item>其他</item>
+    </string-array>
 </resources>

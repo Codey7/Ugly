@@ -45,7 +45,7 @@ repositories{
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:multidex:1.0.0'
+    compile 'com.android.support:multidex:1.0.1'
     compile 'com.android.support:appcompat-v7:23.2.1'
     compile 'com.android.support:support-v4:23.2.1'
     compile 'com.android.support:design:23.2.1'
@@ -80,4 +80,5 @@ dependencies {
     compile files('libs/sms/MobTools-2016.0303.1229.jar')
     compile name:'SMSSDK-2.0.2',ext:'aar'
     compile name:'SMSSDKGUI-2.0.2',ext:'aar'
+    compile project(path: ':multi-image-selector')
 }

@@ -20,7 +20,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_alignParentRight="true"
             android:text="登出"
-            android:id="@+id/textView2"
+            android:id="@+id/tv_logout"
             android:layout_gravity="right"/>
 
         <ImageView

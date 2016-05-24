@@ -3,5 +3,13 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-
+    <ListView
+        android:scrollbars="none"
+        android:divider="@null"
+        android:dividerHeight="5dp"
+        android:layout_margin="4dp"
+        android:id="@+id/lv_my_rate"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
 </LinearLayout>

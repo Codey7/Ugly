@@ -14,15 +14,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class NetUtil
 {
-    private static final String baseUrl="";
+    private static final String baseUrl="http://192.168.1.110:8080/ugly/";
+
+    private NetService netService;
 
     public NetService getNetService()
     {
         return netService;
     }
-
-    private NetService netService;
-    private static final NetUtil netUtil=new NetUtil();
+    private static  NetUtil netUtil=new NetUtil();
     public static NetUtil getInstance()
     {
         return netUtil;
@@ -58,17 +58,18 @@ public class NetUtil
                     return response;
                 }
 
-                return null;
+                return chain.proceed(request);
             }
         };
-        OkHttpClient client=new OkHttpClient();
-        client.interceptors().add(interceptor);
-
+        OkHttpClient client=new OkHttpClient.Builder()
+                .addInterceptor(interceptor)
+                .build();
         Retrofit retrofit=new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(new StringConverterFactory())
                 .client(client)
                 .build();
-        netService=retrofit.create(netService.getClass());
+        netService=retrofit.create(NetService.class);
     }
 }

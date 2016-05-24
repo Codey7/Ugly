@@ -24,10 +24,11 @@
 <ImageView
     android:layout_centerHorizontal="true"
     android:layout_marginTop="100dp"
-    android:src="@drawable/logo"
+    android:src="@drawable/logo1"
     android:layout_width="120dp"
     android:layout_height="120dp"
-    android:id="@+id/icon"/>
+    android:id="@+id/icon"
+    android:contentDescription="@string/logo"/>
 
     <TextView
         android:textColor="@color/bar"

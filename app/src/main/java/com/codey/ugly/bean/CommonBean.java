@@ -5,11 +5,20 @@ package com.codey.ugly.bean;
  */
 public class CommonBean
 {
+    private int contentId;
     private String url;
     private String title;
+    private int thumbnum;//阅读量
+    private int bookmarknum;//收藏量
+    public int getContentId()
+    {
+        return contentId;
+    }
 
-    private int thumbnum;
-    private int bookmarknum;
+    public void setContentId(int contentId)
+    {
+        this.contentId = contentId;
+    }
 
     public CommonBean(String url, String title, int thumbnum, int bookmarknum)
     {

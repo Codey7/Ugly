@@ -7,12 +7,13 @@
                                     android:padding="5dp">
 
             <ImageView
-                android:id="@+id/iv_article"
+                android:id="@+id/iv_rate_img"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="matrix"
                 android:src="@drawable/deploy"/>
             <TextView
+                android:id="@+id/tv_rate_score"
                 android:textColor="@android:color/white"
                 android:textSize="22sp"
                 android:padding="10dp"
@@ -22,7 +23,7 @@
                 android:layout_height="wrap_content"/>
 
             <TextView
-                android:id="@+id/tv_article_title"
+                android:id="@+id/tv_rate_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center_horizontal"

@@ -5,13 +5,12 @@ package com.codey.ugly.bean;
  */
 public class RateBean
 {
-    private String username;
     private String headimgurl;
+    private String username;
     private String pubtime;
-
-    private float score;
     private String details;
     private String rateimgurl;
+    private float score;
 
 
     public RateBean(float score, String pubtime, String details, String rateimgurl)

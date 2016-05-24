@@ -37,7 +37,7 @@
     <!--user-permission-->
 
     <application
-        android:name=".MyApplication"
+        android:name=".view.MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
@@ -63,7 +63,7 @@
 
 
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
@@ -75,27 +75,37 @@
                        android:resource="@xml/searchable" />
 
         </activity>
-        <activity android:name=".Splash">
+        <activity android:name=".view.Splash"
+                  android:label="@string/app_name"
+                  android:theme="@style/AppTheme"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Login">
+        <activity android:name=".view.Login"
+            >
 
         </activity>
-        <activity android:name=".SignUp"></activity>
-        <activity android:name=".sortselect.PersonInfo"></activity>
-        <activity android:name=".sortselect.GirlsInfo"></activity>
-        <activity android:name=".sortselect.JobInfo"></activity>
-        <activity android:name=".activity.DetailsArticle"
+        <activity android:name=".view.SignUp"></activity>
+        <activity android:name=".view.sortselect.PersonInfo"></activity>
+        <activity android:name=".view.sortselect.GirlsInfo"></activity>
+        <activity android:name=".view.sortselect.JobInfo"></activity>
+        <activity android:name=".view.activity.DetailsArticle"
             >
         </activity>
-        <activity android:name=".activity.CommonArticle"></activity>
-        <activity android:name=".activity.GiftArticle"></activity>
-        <activity android:name=".navmenu.RateActivity"></activity>
+        <activity android:name=".view.activity.CommonArticle"></activity>
+        <activity android:name=".view.activity.GiftArticle"></activity>
+        <activity android:name=".view.navmenu.RateActivity"></activity>
+        <activity android:name=".view.navmenu.PointMall"></activity>
+        <activity android:name=".view.activity.EditArticle"></activity>
 
+
+        <activity
+            android:configChanges="orientation|screenSize"
+            android:name="me.nereo.multi_image_selector.MultiImageSelectorActivity" />
 
         //Sms
         <activity

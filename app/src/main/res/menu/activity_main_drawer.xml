@@ -17,6 +17,11 @@
             android:icon="@drawable/ic_radio_button_checked_black_24dp"
             />
         <item
+            android:id="@+id/nav_points_mall"
+            android:title="积分商城"
+            android:icon="@drawable/ic_shopping_cart_black_24dp"
+            />
+        <item
             android:id="@+id/nav_favorite"
             android:icon="@drawable/ic_grade_black_36dp"
             android:title="收藏"/>

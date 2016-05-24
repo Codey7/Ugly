@@ -4,16 +4,11 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_back"
-        android:background="@color/bar"
-        android:drawableLeft="@drawable/ic_arrow_back_white_24dp"
-        android:padding="15dp"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:text="攻略详情"
+    <include
+        layout="@layout/topwithback"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        ></include>
     <WebView
         android:id="@+id/wv_article"
         android:layout_width="match_parent"

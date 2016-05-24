@@ -6,17 +6,26 @@ import java.util.ArrayList;
  * 用户详细信息  肥胖标准按国际标准计算
  * Created by Mr.Codey on 2016/4/23.
  */
-public class UserDetailBean
+public class UserDetailBean extends BaseUserBean
 {
     private String bodyType;
-    private ArrayList<String> jobList;
 
     private ArrayList<String> girlList;
+    private Boolean isPersonal;
 
-    public UserDetailBean(String bodyType, ArrayList<String> jobList, ArrayList<String> girlList)
+    public UserDetailBean()
+    {
+    }
+
+    public UserDetailBean(String sex, Boolean isPersonal)
+    {
+        this.isPersonal = isPersonal;
+        this.setSex(sex);
+    }
+
+    public UserDetailBean(String bodyType, ArrayList<String> girlList)
     {
         this.bodyType = bodyType;
-        this.jobList = jobList;
         this.girlList = girlList;
     }
 
@@ -40,14 +49,13 @@ public class UserDetailBean
         this.bodyType = bodyType;
     }
 
-    public ArrayList<String> getJobList()
+    public Boolean getPersonal()
     {
-        return jobList;
+        return isPersonal;
     }
 
-    public void setJobList(ArrayList<String> jobList)
+    public void setPersonal(Boolean personal)
     {
-        this.jobList = jobList;
+        isPersonal = personal;
     }
-
 }
