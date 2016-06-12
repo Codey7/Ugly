@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.codey.ugly.R;
+import com.codey.ugly.model.StringKey;
 import com.codey.ugly.view.adapter.MyFragmentAdapter;
 import com.codey.ugly.view.mainFragment.Common;
 import com.codey.ugly.view.mainFragment.Deploy;
@@ -91,27 +92,6 @@ public class MainActivity extends AppCompatActivity
         toolbar.setOnMenuItemClickListener(onMenuClick);
 
         setTabs();
-//判断主页或打分页
-
-       /* if(savedInstanceState!=null)
-        {
-            if (savedInstanceState.getInt("is_rate") == 1)
-            {
-                toolbar.setTitle("打分");
-                navigationView.setCheckedItem(R.id.nav_mark);
-                setRate();
-            }
-            else
-            {
-                navigationView.setCheckedItem(R.id.nav_main);
-                setTabs();
-            }
-        }
-        else
-        {
-            navigationView.setCheckedItem(R.id.nav_main);
-
-        }*/
 
 
 
@@ -139,7 +119,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                SharedPreferencesUtil.savaData(getApplicationContext(),"login_status",0);
+                SharedPreferencesUtil.savaData(getApplicationContext(), StringKey.LOGIN_STATUS,0);
                 Intent intent=new Intent(getApplicationContext(),Login.class);
                 startActivity(intent);
             }
@@ -189,41 +169,6 @@ public class MainActivity extends AppCompatActivity
         mTablayout.setupWithViewPager(communityViewPager);
         mTablayout.setTabMode(TabLayout.MODE_FIXED);
     }
-    /*private void setRate()
-    {
-        fragments=new ArrayList<>();
-        Rate rate=new Rate();
-        MyRate myRate=new MyRate();
-        fragments.add(rate);
-        fragments.add(myRate);
-        String[] pageName={"为TA打分","我的分数"};
-        MyFragmentAdapter adapter=new MyFragmentAdapter(getSupportFragmentManager(),fragments,this,pageName);
-        communityViewPager.setAdapter(adapter);
-        communityViewPager.setCurrentItem(0);
-        communityViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener()
-        {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels)
-            {
-
-            }
-
-            @Override
-            public void onPageSelected(int position)
-            {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state)
-            {
-
-            }
-        });
-
-        mTablayout.setupWithViewPager(communityViewPager);
-        mTablayout.setTabMode(TabLayout.MODE_FIXED);
-    }*/
 
     @Override
     public void onBackPressed()
@@ -294,17 +239,16 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         if (id == R.id.nav_main)
         {
-            //mainrefresh();
-            // Handle the camera action
+            item.setChecked(true);
         } else
         if (id == R.id.nav_mark)
         {
-           // refresh();
-           // item.setChecked(true);
+            item.setChecked(true);
             Intent intent=new Intent(MainActivity.this, RateActivity.class);
             startActivity(intent);
         }else if (id==R.id.nav_points_mall)
         {
+            item.setChecked(true);
             Intent intent=new Intent(MainActivity.this, PointMall.class);
             startActivity(intent);
         }
@@ -347,19 +291,6 @@ public class MainActivity extends AppCompatActivity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-    }
-
-    public void refresh()
-    {
-        Bundle b=new Bundle();
-        b.putInt("is_rate", IS_RATE);
-        onCreate(b);
-    }
-    public void mainrefresh()
-    {
-        Bundle b=new Bundle();
-        b.putInt("is_main", IS_Main);
-        onCreate(b);
     }
 
     @Override

@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.codey.ugly.R;
 import com.codey.ugly.bean.BaseUserBean;
 import com.codey.ugly.core.BaseAppCompatActivity;
+import com.codey.ugly.model.StringKey;
 import com.codey.ugly.utils.Md5Util;
 import com.codey.ugly.view.sortselect.PersonInfo;
 import com.codey.ugly.utils.NetUtil;
@@ -56,7 +57,7 @@ public class Login extends BaseAppCompatActivity implements View.OnClickListener
                     /*upload();*/
                     Intent intent = new Intent(Login.this, PersonInfo.class);
                     startActivity(intent);
-                    SharedPreferencesUtil.savaData(Login.this, "login_status", 1);
+                    SharedPreferencesUtil.savaData(Login.this, StringKey.LOGIN_STATUS, 1);
                     overridePendingTransition(android.support.design.R.anim.abc_slide_in_bottom, android.support.design.R.anim.abc_slide_out_top);
                     break;
                 case 0:
@@ -94,6 +95,7 @@ public class Login extends BaseAppCompatActivity implements View.OnClickListener
     @Override
     public void onClick(View v)
     {
+
         Intent intent;
         switch (v.getId())
         {
@@ -106,12 +108,15 @@ public class Login extends BaseAppCompatActivity implements View.OnClickListener
                 //upload();
                 break;
             case R.id.tv_not_login:
+                umengDefault();
                 intent = new Intent(Login.this, MainActivity.class);
                 startActivity(intent);
+                overridePendingTransition(android.support.design.R.anim.abc_fade_in, android.support.design.R.anim.abc_fade_out);
                 finish();
                 break;
         }
     }
+
 
     public void umengUser()
     {
@@ -158,8 +163,44 @@ public class Login extends BaseAppCompatActivity implements View.OnClickListener
                     }*/
                 }
             });
-            /*upload();*/
         }
+    }
+
+    public void umengDefault()
+    {
+        CommUser user = new CommUser();
+        user.name = "用户123";
+        user.id = "123";
+        user.source = Source.SELF_ACCOUNT;// 登录系统来源
+        CommunityFactory.getCommSDK(getApplicationContext()).loginToUmengServer(getApplicationContext(), user, new LoginListener()
+            {
+                @Override
+                public void onStart()
+                {
+
+                }
+
+                @Override
+                public void onComplete(int stCode, CommUser commUser)
+                {
+                    Log.d("tag", "login result is" + stCode);          //获取登录结果状态码
+                    if (ErrorCode.NO_ERROR == stCode)
+                    {
+                    } else
+                    {
+                        handler.sendEmptyMessage(0);
+                    }
+
+                    /*Log.d("tag", "login result is" + stCode);          //获取登录结果状态码
+                    if (ErrorCode.NO_ERROR == stCode)
+                    {
+                        SharedPreferencesUtil.savaData(getApplicationContext(),"umeng_login_status",1);
+                    } else
+                    {
+                        Log.e("umeng","友盟登录失败！");
+                    }*/
+                }
+            });
     }
 
     private void upload()

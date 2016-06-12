@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.codey.ugly.model.StringKey;
 import com.codey.ugly.view.Login;
 import com.codey.ugly.view.MainActivity;
 import com.codey.ugly.R;
@@ -107,7 +108,7 @@ public class AccountSet extends BaseAppCompatActivity
                 Log.d("tag", "login result is" + stCode);          //获取登录结果状态码
                 if (ErrorCode.NO_ERROR == stCode)
                 {
-                    SharedPreferencesUtil.savaData(getApplicationContext(),"umeng_login_status",1);
+                    SharedPreferencesUtil.savaData(getApplicationContext(), StringKey.UMENG_LOGIN_STATUS,1);
                 } else
                 {
                     Log.e("umeng","友盟登录失败！");
@@ -134,8 +135,9 @@ public class AccountSet extends BaseAppCompatActivity
                         {
                             Intent intent = new Intent(AccountSet.this, PersonInfo.class);
                             startActivity(intent);
-                            SharedPreferencesUtil.savaData(getApplicationContext(),"account",account);
-                            SharedPreferencesUtil.savaData(getApplicationContext(),"login_status",1);
+                            SharedPreferencesUtil.savaData(getApplicationContext(),StringKey.ACCOUNT,account);
+                            SharedPreferencesUtil.savaData(getApplicationContext(),StringKey.LOGIN_STATUS,1);
+                            SharedPreferencesUtil.savaData(getApplicationContext(),StringKey.SEX,"男生");
                             overridePendingTransition(android.support.design.R.anim.abc_slide_in_bottom, android.support.design.R.anim.abc_slide_out_top);
                             finish();
                         }
@@ -143,8 +145,9 @@ public class AccountSet extends BaseAppCompatActivity
                         {
                             Intent intent = new Intent(AccountSet.this, MainActivity.class);
                             startActivity(intent);
-                            SharedPreferencesUtil.savaData(getApplicationContext(),"account",account);
-                            SharedPreferencesUtil.savaData(getApplicationContext(),"login_status",1);
+                            SharedPreferencesUtil.savaData(getApplicationContext(),StringKey.ACCOUNT,account);
+                            SharedPreferencesUtil.savaData(getApplicationContext(),StringKey.LOGIN_STATUS,1);
+                            SharedPreferencesUtil.savaData(getApplicationContext(),StringKey.SEX,"女生");
                             overridePendingTransition(android.support.design.R.anim.abc_fade_in, android.support.design.R.anim.abc_fade_out);
                         }
                     }

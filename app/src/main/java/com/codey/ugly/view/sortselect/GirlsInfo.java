@@ -76,6 +76,7 @@ public class GirlsInfo extends BasePersonInfo implements View.OnClickListener
                 {
                     Intent intent=new Intent(GirlsInfo.this,MainActivity.class);
                     startActivity(intent);
+                    overridePendingTransition(android.support.design.R.anim.abc_fade_in, android.support.design.R.anim.abc_fade_out);
                     finish();
                 }
             }

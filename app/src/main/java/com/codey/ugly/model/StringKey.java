@@ -5,6 +5,7 @@ package com.codey.ugly.model;
  */
 public class StringKey
 {
+    public static final String ACCOUNT="account";
     public static final String LOGIN_STATUS="login_status";
     public static final String UMENG_LOGIN_STATUS="umeng_login_status";
     public static final String SEX="sex";
